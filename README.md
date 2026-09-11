@@ -1,29 +1,54 @@
-# Kunal Jha — React Portfolio
+# Kunal Jha — Software Engineering Portfolio
 
-A complete React + Vite portfolio redesign inspired by the visual direction of the provided Dribbble reference, but rebuilt as an original interface.
+A modern, high-performance developer portfolio built with React and Vite, featuring an editorial dark/light interface, interactive terminal previews, sanitized project showcases, and live repository telemetry.
 
-## Included
-- React + Vite
-- Responsive desktop/tablet/mobile layout
-- Light/dark theme toggle
-- Hero, About, Selected Work, Stack, Experience, Contact
-- Real links for GitHub, LinkedIn, X, Instagram
-- All 6 current public projects from `kunal-gin`
-- Direct repository links for every project
-- Live demo link for SpendWise
-- GitHub profile count loaded from the public GitHub API at runtime
-- Project visuals built in CSS/HTML without external screenshots
+---
 
-## Run
+## 🚀 Key Highlights
+
+- **Framework**: React 18 + Vite with blazing fast HMR.
+- **Visual Design**: High-contrast editorial aesthetic with light and dark mode toggles.
+- **Interactive Showcases**:
+  - **NexTerm**: Go & Wails native desktop SSH & terminal manager showcase.
+  - **SpendWise**: Cloudflare Workers + React expense and budget tracker.
+  - **BRM Billing Operations Portal**: Oracle BRM enterprise invoice & billing workflow system.
+  - **Ecommerce Storefront**: Modern shoe e-commerce clone with shopping cart and product filtering.
+- **Contact & Connect**:
+  - Direct Email: [kunaljha8990@gmail.com](mailto:kunaljha8990@gmail.com)
+  - GitHub: [@kunal-gin](https://github.com/kunal-gin)
+  - LinkedIn: [kunal-jha-dev](https://www.linkedin.com/in/kunal-jha-dev/)
+
+---
+
+## 🛠️ Local Development
+
+### Prerequisites
+- Node.js 18+
+- npm 9+
+
+### Quick Start
 ```bash
+# Clone the repository
+git clone https://github.com/kunal-gin/kunal-portfolio.git
+
+# Install dependencies
 npm install
+
+# Start development server
 npm run dev
 ```
 
-## Build
+### Production Build
 ```bash
+# Compile optimized bundle
 npm run build
+
+# Preview production build locally
+npm run preview
 ```
 
-## Deploy
-Works on Vercel, Netlify, GitHub Pages (with suitable Vite deployment config), Cloudflare Pages, or any static hosting provider.
+---
+
+## 📄 License
+
+This project is licensed under the MIT License — see the LICENSE file for details.
