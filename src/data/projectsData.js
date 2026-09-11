@@ -14,24 +14,24 @@ export const projects = [
   {
     slug: "nexterm",
     images: {
-      multiexec: nextermMultiexec,
       dashboard: nextermDashboard,
+      multiexec: nextermMultiexec,
       terminal: nextermTerminal,
     },
     gallery: [
+      {
+        id: "dashboard",
+        label: "📊 Workspace Hub",
+        title: "Your Terminal, Elevated — NexTerm Command Workspace",
+        desc: "Organized session catalogs, environment filters (PROD, UAT, TEST, LOCAL), multi-protocol connection wizards, and fast session launchpads.",
+        src: nextermDashboard,
+      },
       {
         id: "multiexec",
         label: "🖥️ 4-Way MultiExec",
         title: "Synchronized Multi-Host Terminal Execution",
         desc: "Broadcast commands across 4 isolated servers simultaneously with zero latency and independent stream buffering.",
         src: nextermMultiexec,
-      },
-      {
-        id: "dashboard",
-        label: "📊 Workspace & Server Hub",
-        title: "Organized Server Fleet & Connection Manager",
-        desc: "Categorized server folders, environment filters (PROD, UAT, TEST, LOCAL), and one-click SSH launchpads.",
-        src: nextermDashboard,
       },
       {
         id: "terminal",

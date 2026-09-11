@@ -64,7 +64,7 @@ function SocialLinks() {
 
 function ProjectVisual({ project }) {
   if (project.visual === "terminal") {
-    const previewImg = project.images?.multiexec || project.images?.dashboard;
+    const previewImg = project.images?.dashboard || project.images?.multiexec;
     if (previewImg) {
       return (
         <div className="project-visual nexterm-ui-preview">
@@ -87,8 +87,8 @@ function ProjectVisual({ project }) {
               className="nexterm-screen-img"
             />
             <div className="nexterm-quick-stats">
-              <span className="stat-pill">4-Way MultiExec</span>
-              <span className="stat-pill highlight">GPU xterm.js</span>
+              <span className="stat-pill">Workspace Hub</span>
+              <span className="stat-pill highlight">v1.0.0 Desktop</span>
             </div>
           </div>
         </div>
