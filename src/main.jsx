@@ -457,7 +457,7 @@ function App() {
           <div className="section-label">01 / ABOUT</div>
           <div className="section-content about-grid">
             <div>
-              <h2>I build closer to the metal, then bring the product layer on top.</h2>
+              <h2>Bridging robust systems engineering with modern, <em>responsive products.</em></h2>
             </div>
             <div className="about-body">
               <p>
