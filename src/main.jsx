@@ -29,7 +29,6 @@ import "./styles.css";
 import heroImage from "./assets/hero-main.jpg";
 import bottomAvatar from "./assets/avatar-bottom.jpg";
 import signatureImg from "./assets/kunal-signature.png";
-import signatureStepsImg from "./assets/signature-steps-row.png";
 import { projects } from "./data/projectsData";
 import { ProjectDetailPage } from "./components/ProjectDetailPage";
 
@@ -421,7 +420,6 @@ function ProjectCard({ project }) {
 function AnimatedSignature() {
   const [sigKey, setSigKey] = useState(0);
   const [isSigning, setIsSigning] = useState(false);
-  const [showSteps, setShowSteps] = useState(false);
 
   const handleReplay = (e) => {
     if (e) e.stopPropagation();
@@ -429,7 +427,7 @@ function AnimatedSignature() {
     setSigKey((k) => k + 1);
     setTimeout(() => {
       setIsSigning(false);
-    }, 2200);
+    }, 4200);
   };
 
   return (
@@ -442,70 +440,51 @@ function AnimatedSignature() {
             <Sparkles size={13} className="sparkle-icon" />
             <span>ENGINEERED WITH INTENT</span>
           </div>
-          <div className="signature-controls-group">
-            <button
-              type="button"
-              className={`sig-tab-btn ${!showSteps ? "active" : ""}`}
-              onClick={() => setShowSteps(false)}
-            >
-              Signature
-            </button>
-            <button
-              type="button"
-              className={`sig-tab-btn ${showSteps ? "active" : ""}`}
-              onClick={() => setShowSteps(true)}
-            >
-              8-Step Progression
-            </button>
-            <button
-              type="button"
-              className="sig-replay-btn"
-              onClick={handleReplay}
-              title="Replay signature animation"
-              aria-label="Replay signature animation"
-            >
-              <RotateCcw size={12} className={isSigning ? "spinning" : ""} />
-              <span>{isSigning ? "Signing..." : "Replay"}</span>
-            </button>
-          </div>
+          <button
+            type="button"
+            className="sig-replay-btn"
+            onClick={handleReplay}
+            title="Replay smooth handwritten signature animation"
+            aria-label="Replay signature animation"
+          >
+            <RotateCcw size={12} className={isSigning ? "spinning" : ""} />
+            <span>{isSigning ? "Signing..." : "Replay Signature"}</span>
+          </button>
         </div>
 
         <div className="signature-card-transparent">
-          {!showSteps ? (
-            <div
-              key={sigKey}
-              className={`signature-visual-wrap ${isSigning ? "is-signing" : "is-settled"}`}
-              onClick={handleReplay}
-              title="Click anywhere to re-animate signature"
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") handleReplay(e); }}
-            >
-              {isSigning && <div className="sig-spark-tracer" />}
-              <img
-                src={signatureImg}
-                alt="Kunal Jha Signature — BUILD | LEARN | CREATE | GROW"
-                className="kunal-signature-img"
-                draggable={false}
-              />
-              <div className="signature-hover-hint">
-                <RotateCcw size={11} className={isSigning ? "spinning" : ""} />
-                <span>{isSigning ? "Signing..." : "Click to Re-sign"}</span>
-              </div>
+          <div
+            key={sigKey}
+            className={`signature-visual-wrap ${isSigning ? "is-signing" : "is-settled"}`}
+            onClick={handleReplay}
+            title="Click anywhere to re-animate signature"
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") handleReplay(e); }}
+          >
+            {isSigning && <div className="sig-spark-tracer" />}
+            <img
+              src={signatureImg}
+              alt="Kunal Jha Signature"
+              className="kunal-signature-img"
+              draggable={false}
+            />
+
+            <div className={`sig-motto ${isSigning ? "is-signing" : "is-settled"}`}>
+              <span>BUILD</span>
+              <span className="motto-divider">|</span>
+              <span>LEARN</span>
+              <span className="motto-divider">|</span>
+              <span>CREATE</span>
+              <span className="motto-divider">|</span>
+              <span>GROW</span>
             </div>
-          ) : (
-            <div className="signature-steps-wrap">
-              <div className="signature-steps-header">
-                <span>STROKE PROGRESSION · FROM INITIAL SPARK TO COMPLETE FLOURISH</span>
-              </div>
-              <img
-                src={signatureStepsImg}
-                alt="Kunal Jha Signature 8-Step Breakdown"
-                className="signature-steps-strip-img"
-                draggable={false}
-              />
+
+            <div className="signature-hover-hint">
+              <RotateCcw size={11} className={isSigning ? "spinning" : ""} />
+              <span>{isSigning ? "Signing..." : "Click to Re-sign"}</span>
             </div>
-          )}
+          </div>
         </div>
 
         <div className="signature-footer-bar">

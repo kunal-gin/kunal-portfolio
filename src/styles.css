@@ -2137,7 +2137,7 @@ h2{font-size:clamp(38px,5vw,68px);line-height:.97;letter-spacing:-.065em;margin:
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 24px 12px;
+  padding: 28px 12px 20px;
   min-height: 200px;
 }
 
@@ -2160,78 +2160,161 @@ h2{font-size:clamp(38px,5vw,68px);line-height:.97;letter-spacing:-.065em;margin:
 
 .kunal-signature-img {
   width: 100%;
-  max-width: 560px;
+  max-width: 580px;
   height: auto;
   display: block;
   background: transparent !important;
-  filter: drop-shadow(0 0 16px rgba(234, 179, 8, 0.4)) drop-shadow(0 0 36px rgba(212, 175, 55, 0.2));
-  transition: filter 0.3s ease;
+  image-rendering: -webkit-optimize-contrast;
+  filter: drop-shadow(0 0 18px rgba(234, 179, 8, 0.45)) drop-shadow(0 0 36px rgba(212, 175, 55, 0.25));
+  transition: filter 0.4s ease;
 }
 
 .signature-visual-wrap:hover .kunal-signature-img {
-  filter: drop-shadow(0 0 24px rgba(234, 179, 8, 0.6)) drop-shadow(0 0 48px rgba(212, 175, 55, 0.35));
+  filter: drop-shadow(0 0 28px rgba(234, 179, 8, 0.65)) drop-shadow(0 0 52px rgba(212, 175, 55, 0.4));
 }
 
 :root[data-theme="light"] .kunal-signature-img {
-  filter: drop-shadow(0 2px 10px rgba(180, 120, 20, 0.3)) brightness(0.82) sepia(0.7) saturate(2.5) contrast(1.2);
+  filter: drop-shadow(0 2px 10px rgba(180, 120, 20, 0.35)) brightness(0.8) sepia(0.7) saturate(2.5) contrast(1.25);
 }
 
 :root[data-theme="light"] .signature-visual-wrap:hover .kunal-signature-img {
-  filter: drop-shadow(0 4px 16px rgba(180, 120, 20, 0.45)) brightness(0.75) sepia(0.75) saturate(3) contrast(1.25);
+  filter: drop-shadow(0 4px 16px rgba(180, 120, 20, 0.5)) brightness(0.74) sepia(0.75) saturate(3) contrast(1.3);
 }
 
-/* Handwritten stroke reveal animation */
+/* Smooth slow handwritten stroke reveal animation */
 .signature-visual-wrap.is-signing .kunal-signature-img {
-  animation: signatureWriteReveal 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation: signatureWriteSmooth 3.8s cubic-bezier(0.28, 0, 0.2, 1) forwards;
 }
 
-@keyframes signatureWriteReveal {
+@keyframes signatureWriteSmooth {
   0% {
     clip-path: inset(0 100% 0 0);
-    opacity: 0.3;
+    opacity: 0.2;
+    filter: drop-shadow(0 0 4px rgba(234, 179, 8, 0.2));
+  }
+  15% {
+    clip-path: inset(0 80% 0 0);
+    opacity: 0.8;
+  }
+  45% {
+    clip-path: inset(0 50% 0 0);
+    opacity: 0.95;
+  }
+  75% {
+    clip-path: inset(0 20% 0 0);
+    opacity: 1;
   }
   100% {
     clip-path: inset(0 0 0 0);
     opacity: 1;
+    filter: drop-shadow(0 0 18px rgba(234, 179, 8, 0.45)) drop-shadow(0 0 36px rgba(212, 175, 55, 0.25));
   }
 }
 
-/* Golden Spark Tracer */
+/* Golden Spark Tracer - Smooth slow glide */
 .sig-spark-tracer {
   position: absolute;
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  background: radial-gradient(circle, #ffffff 0%, #fef08a 35%, rgba(234, 179, 8, 0) 75%);
-  box-shadow: 0 0 20px 6px rgba(254, 240, 138, 0.9), 0 0 45px 14px rgba(234, 179, 8, 0.6);
+  background: radial-gradient(circle, #ffffff 0%, #fef08a 35%, rgba(234, 179, 8, 0.8) 65%, transparent 100%);
+  box-shadow: 0 0 25px 8px rgba(254, 240, 138, 0.95), 0 0 50px 18px rgba(234, 179, 8, 0.7);
   pointer-events: none;
   z-index: 10;
-  animation: tracerFollow 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation: smoothTracerFollow 3.8s cubic-bezier(0.28, 0, 0.2, 1) forwards;
 }
 
-@keyframes tracerFollow {
+@keyframes smoothTracerFollow {
   0% {
     left: 4%;
-    top: 52%;
+    top: 48%;
     opacity: 0;
-    transform: translate(-50%, -50%) scale(0.6);
+    transform: translate(-50%, -50%) scale(0.5);
   }
-  12% {
+  8% {
     opacity: 1;
+    transform: translate(-50%, -50%) scale(1.25);
+  }
+  25% {
+    left: 28%;
+    top: 46%;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  52% {
+    left: 52%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  76% {
+    left: 76%;
+    top: 55%;
     transform: translate(-50%, -50%) scale(1.3);
   }
-  85% {
-    left: 90%;
-    top: 66%;
+  92% {
+    left: 92%;
+    top: 62%;
     opacity: 1;
     transform: translate(-50%, -50%) scale(1.4);
   }
   100% {
-    left: 97%;
-    top: 68%;
+    left: 98%;
+    top: 64%;
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.6);
   }
+}
+
+/* Motto Tagline: BUILD | LEARN | CREATE | GROW */
+.sig-motto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 14px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  color: #facc15;
+  text-transform: uppercase;
+  user-select: none;
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sig-motto span {
+  display: inline-block;
+  text-shadow: 0 0 14px rgba(234, 179, 8, 0.45);
+}
+
+.motto-divider {
+  color: rgba(234, 179, 8, 0.35) !important;
+  font-weight: 300;
+  text-shadow: none !important;
+}
+
+.signature-visual-wrap.is-signing .sig-motto {
+  opacity: 0;
+  transform: translateY(6px);
+  animation: revealMottoSlow 1.2s cubic-bezier(0.16, 1, 0.3, 1) 3.0s forwards;
+}
+
+@keyframes revealMottoSlow {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 0.95;
+    transform: translateY(0);
+  }
+}
+
+:root[data-theme="light"] .sig-motto {
+  color: #a16207;
+}
+
+:root[data-theme="light"] .motto-divider {
+  color: rgba(161, 98, 7, 0.35) !important;
 }
 
 .signature-hover-hint {
@@ -2263,45 +2346,6 @@ h2{font-size:clamp(38px,5vw,68px);line-height:.97;letter-spacing:-.065em;margin:
 .signature-visual-wrap:hover .signature-hover-hint {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* 8-Step Breakdown View */
-.signature-steps-wrap {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 18px;
-  background: transparent !important;
-  animation: fadeInSteps 0.35s ease forwards;
-}
-
-@keyframes fadeInSteps {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.signature-steps-header {
-  font-size: 10px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  letter-spacing: 0.14em;
-  color: #eab308;
-  text-transform: uppercase;
-  font-weight: 700;
-  text-align: center;
-}
-
-.signature-steps-strip-img {
-  width: 100%;
-  max-width: 920px;
-  height: auto;
-  display: block;
-  background: transparent !important;
-  filter: drop-shadow(0 0 16px rgba(234, 179, 8, 0.25));
-}
-
-:root[data-theme="light"] .signature-steps-strip-img {
-  filter: drop-shadow(0 2px 6px rgba(180, 120, 20, 0.25)) brightness(0.82) sepia(0.7) saturate(2.5) contrast(1.2);
 }
 
 /* Footer bar */
