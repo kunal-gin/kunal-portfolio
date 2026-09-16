@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
 import {
+  Activity,
   ArrowDownRight,
   ArrowUpRight,
   BriefcaseBusiness,
@@ -10,6 +11,7 @@ import {
   Github,
   Globe2,
   Instagram,
+  Layers,
   Linkedin,
   Mail,
   Menu,
@@ -243,17 +245,101 @@ $ tail -f /var/log/syslog
       </div>
     );
   }
-  return (
-    <div className="project-visual monitor-ui">
-      <div className="monitor-title">SENTRIX <span>SOON</span></div>
-      <div className="signal-grid">
-        <div><small>CPU</small><b>42%</b><i style={{width:"42%"}}/></div>
-        <div><small>MEMORY</small><b>61%</b><i style={{width:"61%"}}/></div>
-        <div><small>DISK</small><b>38%</b><i style={{width:"38%"}}/></div>
-        <div><small>UPTIME</small><b>99.99%</b><i style={{width:"92%"}}/></div>
+  if (project.visual === "monitor") {
+    if (project.images?.overview) {
+      return (
+        <div className="project-visual sentrix-ui-preview">
+          <div className="sentrix-window-bar">
+            <div className="sentrix-dots">
+              <span />
+              <span />
+              <span />
+            </div>
+            <div className="sentrix-title-pill">
+              <Activity size={11} />
+              <span>SentriX · Infrastructure Fleet Observability</span>
+            </div>
+            <span className="sentrix-version-chip">C11 + GO CORE</span>
+          </div>
+          <div className="sentrix-screen-wrap">
+            <img
+              src={project.images.overview}
+              alt="SentriX Infrastructure Fleet Dashboard"
+              className="sentrix-screen-img"
+            />
+            <div className="sentrix-quick-stats">
+              <span className="stat-pill">4 Fleet Nodes</span>
+              <span className="stat-pill highlight">Sub-10ms Agent</span>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    return (
+      <div className="project-visual monitor-ui">
+        <div className="monitor-title">SENTRIX <span>ACTIVE</span></div>
+        <div className="signal-grid">
+          <div><small>CPU</small><b>42%</b><i style={{width:"42%"}}/></div>
+          <div><small>MEMORY</small><b>61%</b><i style={{width:"61%"}}/></div>
+          <div><small>DISK</small><b>38%</b><i style={{width:"38%"}}/></div>
+          <div><small>UPTIME</small><b>99.99%</b><i style={{width:"92%"}}/></div>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+  if (project.visual === "sync") {
+    return (
+      <div className="project-visual fulx-mesh-preview">
+        <div className="fulx-header-bar">
+          <div className="fulx-dots">
+            <span />
+            <span />
+            <span />
+          </div>
+          <div className="fulx-title-pill">
+            <Layers size={11} />
+            <span>Fulx · Local-First P2P Replication Engine</span>
+          </div>
+          <span className="fulx-version-chip">UPCOMING · P2P</span>
+        </div>
+        <div className="fulx-mesh-content">
+          <div className="fulx-nodes-cluster">
+            <div className="fulx-node host active">
+              <span className="node-ping" />
+              <div className="node-icon">💻</div>
+              <div className="node-info">
+                <b>Local Host</b>
+                <small>127.0.0.1</small>
+              </div>
+              <span className="node-status synced">SYNCED</span>
+            </div>
+            <div className="fulx-stream-flow">
+              <div className="flow-track">
+                <span className="flow-dot d1" />
+                <span className="flow-dot d2" />
+                <span className="flow-dot d3" />
+              </div>
+              <div className="merkle-badge">Merkle DAG · CDC Chunks</div>
+            </div>
+            <div className="fulx-node peer active">
+              <span className="node-ping" />
+              <div className="node-icon">🖥️</div>
+              <div className="node-info">
+                <b>Peer Node</b>
+                <small>192.168.1.15</small>
+              </div>
+              <span className="node-status transfer">STREAMING</span>
+            </div>
+          </div>
+          <div className="fulx-quick-stats">
+            <span className="stat-pill">Zero Cloud Relays</span>
+            <span className="stat-pill highlight">mTLS + QUIC</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  return null;
 }
 
 function ProjectCard({ project }) {

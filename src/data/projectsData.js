@@ -9,6 +9,10 @@ import billingCustomer360 from "../assets/billing-customer360.png";
 import ecommerceStorefront from "../assets/ecommerce-storefront.png";
 import ecommerceProducts from "../assets/ecommerce-products.png";
 import ecommerceOffer from "../assets/ecommerce-offer.png";
+import sentrixOverview from "../assets/sentrix-overview.png";
+import sentrixTelemetry from "../assets/sentrix-telemetry.png";
+import sentrixIncidents from "../assets/sentrix-incidents.png";
+import sentrixArchitecture from "../assets/sentrix-architecture.png";
 
 export const projects = [
   {
@@ -35,9 +39,9 @@ export const projects = [
       },
       {
         id: "terminal",
-        label: "💻 Single Terminal Session",
-        title: "GPU-Accelerated xterm.js Session & Dual SFTP",
-        desc: "High-throughput terminal emulator with integrated dual-pane SFTP file management and hardware keyring security.",
+        label: "💻 Active SSH Session",
+        title: "Native SSH2 Terminal & Dual SFTP File Browser",
+        desc: "High-throughput GPU-accelerated terminal session connected to production hosts with integrated dual-pane SFTP explorer and OS keyring authentication.",
         src: nextermTerminal,
       },
     ],
@@ -342,55 +346,146 @@ export const projects = [
     slug: "sentrix",
     index: "05",
     title: "SentriX",
-    category: "SOON · SERVER HEALTH MONITORING",
-    tagline: "Lightweight Agent-Based Server Health & Telemetry Platform",
+    category: "SYSTEMS · OBSERVABILITY",
+    tagline: "High-Performance Infrastructure Monitoring & Real-Time Telemetry Platform",
     description:
-      "A server-health monitoring platform designed to give engineers a clear operational view of CPU, memory, disk, processes, services, uptime and system health.",
+      "A lightweight, sub-second infrastructure monitoring platform engineered for real-time fleet telemetry, kernel metric sampling, anomaly detection and incident triage.",
     longDescription:
-      "Engineered for real-time observability across distributed nodes and bare-metal servers. Collects host telemetry at sub-second intervals to monitor CPU thrashing, memory leaks, I/O bottlenecks, and service degradation with customizable alerting thresholds.",
-    details: "Monitoring · Observability · Systems",
+      "SentriX is a modern, high-performance infrastructure monitoring and fleet observability platform built for Linux servers and distributed clusters. Powered by a native C11 daemon delivering sub-10ms collection latency, a high-throughput Go ingestion pipeline, and TimescaleDB hypertable storage, SentriX replaces heavyweight legacy monitoring suites with a sleek, obsidian-glassmorphic real-time cockpit.",
+    details: "C11 · Go · TimescaleDB · React · WebSockets",
     repo: "https://github.com/kunal-gin/SentriX",
     live: null,
     accent: "orange",
     visual: "monitor",
+    featured: false,
+    status: "Production Ready",
+    year: "2026",
+    role: "Lead Systems & DevOps Engineer",
+    images: {
+      overview: sentrixOverview,
+      telemetry: sentrixTelemetry,
+      incidents: sentrixIncidents,
+      architecture: sentrixArchitecture,
+    },
+    gallery: [
+      {
+        id: "overview",
+        label: "📊 Fleet Overview",
+        title: "SentriX Distributed Infrastructure Fleet Cockpit",
+        desc: "Real-time cluster observability across Linux hosts, live capacity gauges, threshold alarms, and instantaneous fleet health filtering.",
+        src: sentrixOverview,
+      },
+      {
+        id: "telemetry",
+        label: "⚡ Node Telemetry",
+        title: "High-Frequency Kernel Telemetry & CPU Waveform",
+        desc: "Direct host metric sampling graphing real-time CPU load averages, memory pressure, swap utilization, and disk I/O without DOM lag.",
+        src: sentrixTelemetry,
+      },
+      {
+        id: "incidents",
+        label: "🚨 Incident Center",
+        title: "Automated Incident Lifecycle & Escalation Matrix",
+        desc: "Multi-stage incident triage (Open, Acknowledged, Resolved) with chronological timeline events, root cause audit trails, and channel dispatch.",
+        src: sentrixIncidents,
+      },
+      {
+        id: "architecture",
+        label: "📐 Core Architecture",
+        title: "Go Ingestion Core, TimescaleDB & C11 Agent Topology",
+        desc: "Decoupled system architecture connecting lightweight C11 host daemons to Go streaming buffers, TimescaleDB continuous aggregates, and obsidian UI.",
+        src: sentrixArchitecture,
+      },
+    ],
+    metrics: [
+      { label: "Agent Overhead", value: "<15MB RSS · <0.5% CPU" },
+      { label: "Sampling Interval", value: "Sub-10ms Native" },
+      { label: "Storage Engine", value: "TimescaleDB / PG16" },
+      { label: "Fleet Observability", value: "Real-Time WebSocket" },
+    ],
+    overview:
+      "Heavyweight monitoring suites often introduce high resource overhead and complex configuration. SentriX is designed as a lean, single-binary agent reporting to a crystal-clear operational dashboard with zero-dependency demo capabilities.",
+    architecture:
+      "Engineered with a native C11 collection daemon communicating via streaming buffers with a Go ingestion core, persisting to TimescaleDB continuous aggregates, and broadcasting live fleet status over WebSockets into a React glassmorphic UI.",
+    features: [
+      {
+        title: "Sub-10ms Metric Collection",
+        desc: "Native C11 agent extracting raw kernel metrics from procfs and sysfs with virtually zero CPU footprint.",
+      },
+      {
+        title: "Real-Time Telemetry Streaming",
+        desc: "Bidirectional WebSocket connection pushing live CPU waveforms, memory pressure, and network throughput to connected operator dashboards.",
+      },
+      {
+        title: "Multi-Stage Incident Triage",
+        desc: "Automated alert evaluation against threshold hysteresis, timeline event logging, and root-cause post-mortem audit history.",
+      },
+      {
+        title: "Standalone Demo Mode",
+        desc: "Built-in synthetic fleet simulation allowing complete offline evaluation without external database dependencies.",
+      },
+    ],
+    stack: [
+      { name: "C11 Native Agent", role: "Sub-10ms low-overhead procfs / sysfs metric collection daemon" },
+      { name: "Go Ingestion Core", role: "Non-blocking high-throughput metric streaming and token authentication" },
+      { name: "TimescaleDB & PostgreSQL 16", role: "High-velocity hypertable storage with continuous aggregates" },
+      { name: "React 18 & Vite", role: "Obsidian glassmorphic dark-mode observability workstation" },
+      { name: "Tailwind CSS & Recharts", role: "GPU-smooth real-time metric rendering and telemetry curves" },
+    ],
+  },
+  {
+    slug: "fulx",
+    index: "06",
+    title: "Fulx",
+    category: "SOON · DISTRIBUTED SYSTEMS",
+    tagline: "High-Throughput Peer-to-Peer Data Replication & Local-First Sync Engine",
+    description:
+      "A lightweight, peer-to-peer data synchronization engine designed for cryptographic integrity verification, delta chunk streaming, and zero-conflict multi-device replication.",
+    longDescription:
+      "Fulx is an ultra-fast, local-first synchronization and peer-to-peer file replication protocol engineered in Go. Built around content-defined chunking (Rabin CDC), Merkle DAG state verification, and encrypted peer-to-peer gossip discovery, Fulx safely propagates filesystem and data modifications across authorized workstations, edge nodes, and cloud instances without routing through centralized corporate servers.",
+    details: "Go · P2P · Merkle DAG · Local-First",
+    repo: "https://github.com/kunal-gin/Fulx",
+    live: null,
+    accent: "emerald",
+    visual: "sync",
     soon: true,
     featured: false,
     status: "Upcoming Release",
     year: "2026",
-    role: "Systems & DevOps Engineer",
+    role: "Distributed Systems Architect",
     metrics: [
-      { label: "Telemetry Interval", value: "Sub-Second" },
-      { label: "Monitored Subsystems", value: "CPU · RAM · Disk · I/O" },
-      { label: "Target Hosts", value: "Linux Nodes & Containers" },
-      { label: "Alerting", value: "Threshold & Anomaly" },
+      { label: "Topology", value: "Decentralized P2P Mesh" },
+      { label: "Chunking Algorithm", value: "Rabin CDC + Merkle DAG" },
+      { label: "Transport Security", value: "Mutual TLS / QUIC" },
+      { label: "Storage Model", value: "Local-First / Zero Cloud" },
     ],
     overview:
-      "Heavyweight monitoring suites often introduce high resource overhead and complex configuration. SentriX is designed as a lean, single-binary agent reporting to a crystal-clear operational dashboard.",
+      "Modern multi-device and edge workflows suffer from privacy concerns, latency, and vendor lock-in with centralized cloud storage. Fulx provides high-velocity, tamper-evident device-to-device replication operating directly over local LANs and private peer-to-peer encrypted tunnels.",
     architecture:
-      "Designed with an ultra-lightweight node daemon written for low CPU impact, communicating via WebSockets to stream metrics into a real-time visualization cockpit.",
+      "Designed with an asynchronous actor model in Go. Files are partitioned into variable-sized content-defined chunks, hashed into a cryptographically verified Merkle tree, and synchronized through direct QUIC peer streams with conflict-free replicated data structures (CRDTs).",
     features: [
       {
-        title: "Sub-Second Telemetry Streaming",
-        desc: "Real-time updates on CPU load averages, memory consumption, swap space, and disk partition saturation.",
+        title: "Content-Defined Chunking & Deduplication",
+        desc: "Variable-length Rabin chunking ensuring minimal bandwidth consumption by only transferring byte deltas across devices.",
       },
       {
-        title: "Process Table Inspector",
-        desc: "Live top-processes inspection with PID monitoring, memory footprint tracking, and remote signal termination.",
+        title: "Cryptographic Merkle DAG Integrity",
+        desc: "Continuous state hashing preventing corrupted transfers, replay attacks, or unauthorized state alteration.",
       },
       {
-        title: "Service Daemon Heartbeats",
-        desc: "Automated status checks for systemd services (nginx, postgres, custom daemons) with instant crash notifications.",
+        title: "Peer-to-Peer Mesh Discovery",
+        desc: "mDNS for zero-config local LAN device pairing and distributed hash tables (DHT) for encrypted WAN routing.",
       },
       {
-        title: "Configurable Alert Thresholds",
-        desc: "Custom triggers for spike detection, low disk capacity warnings, and continuous high-load alerts.",
+        title: "Zero-Knowledge End-to-End Encryption",
+        desc: "Full wire and storage encryption using ChaCha20-Poly1305, ensuring even intermediary relay nodes have zero plaintext visibility.",
       },
     ],
     stack: [
-      { name: "Systems Architecture", role: "Low-overhead host metric sampling daemon" },
-      { name: "WebSockets", role: "Real-time bidirectional telemetry streaming" },
-      { name: "React & Canvas", role: "High-frequency dashboard rendering without DOM lag" },
-      { name: "Linux APIs", role: "Procfs / Sysfs kernel telemetry extraction" },
+      { name: "Go (Golang)", role: "Core P2P daemon, Merkle tree calculation, and concurrency orchestration" },
+      { name: "libp2p & QUIC", role: "Multiplexed encrypted transport, NAT traversal, and peer discovery" },
+      { name: "BadgerDB", role: "High-performance embedded key-value metadata index" },
+      { name: "CRDT Engine", role: "Conflict-free state resolution and multi-master convergence" },
     ],
   },
 ];

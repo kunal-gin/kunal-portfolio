@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
+  Activity,
   ArrowLeft,
   ArrowUpRight,
   BriefcaseBusiness,
@@ -240,12 +241,20 @@ export function ProjectDetailPage({ project, allProjects, onBack, dark, onToggle
                   <TerminalSquare size={12} />
                 ) : project.visual === "billing" ? (
                   <BriefcaseBusiness size={12} />
+                ) : project.visual === "monitor" ? (
+                  <Activity size={12} />
+                ) : project.visual === "sync" ? (
+                  <Layers size={12} />
                 ) : (
                   <Globe2 size={12} />
                 )}
                 <span>
                   {project.slug === "nexterm"
                     ? "NexTerm v1.0.0 — Native Go & Wails v2 Systems Console"
+                    : project.slug === "sentrix"
+                    ? "sentrix.internal.cluster — Real-Time Infrastructure Observability Cockpit"
+                    : project.slug === "fulx"
+                    ? "fulx.local.p2p — High-Throughput Peer Mesh & Replicated DAG"
                     : project.slug === "billing-operations-portal"
                     ? "billing.internal.corp — BRM Operations & E-Invoice Portal"
                     : project.slug === "ecommerce-website"
