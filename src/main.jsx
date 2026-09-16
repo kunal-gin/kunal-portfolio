@@ -17,7 +17,9 @@ import {
   Menu,
   Moon,
   MoveUpRight,
+  RotateCcw,
   Send,
+  Sparkles,
   Sun,
   TerminalSquare,
   X,
@@ -414,10 +416,178 @@ function ProjectCard({ project }) {
   );
 }
 
+function AnimatedSignature() {
+  const [sigKey, setSigKey] = useState(0);
+  const [isSigning, setIsSigning] = useState(false);
+
+  const handleReplay = (e) => {
+    if (e) e.stopPropagation();
+    setIsSigning(true);
+    setSigKey((k) => k + 1);
+    setTimeout(() => {
+      setIsSigning(false);
+    }, 2600);
+  };
+
+  return (
+    <section className="signature-section" aria-label="Author Signature">
+      <div className="signature-container">
+        <div className="signature-ambient-glow" />
+
+        <div className="signature-header">
+          <div className="signature-badge">
+            <Sparkles size={12} className="sparkle-icon" />
+            <span>ENGINEERED WITH INTENT</span>
+          </div>
+          <span className="signature-meta-chip">AUTHENTIC CRAFT · 2026</span>
+        </div>
+
+        <div className="signature-content-grid">
+          <div className="signature-main-box">
+            <div className="signature-quote">
+              <p>“Code with rigor. Design with clarity. Build systems that endure.”</p>
+            </div>
+
+            <div
+              className="signature-canvas-wrap"
+              onClick={handleReplay}
+              title="Click anywhere on signature to re-animate"
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") handleReplay(e); }}
+            >
+              <svg
+                key={sigKey}
+                className={`signature-svg ${isSigning ? "is-signing" : "is-complete"}`}
+                viewBox="0 0 540 180"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <defs>
+                  <linearGradient id="sigInkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#8fd3ff" />
+                    <stop offset="40%" stopColor="#c7b7ff" />
+                    <stop offset="75%" stopColor="#60a5fa" />
+                    <stop offset="100%" stopColor="#38bdf8" />
+                  </linearGradient>
+                </defs>
+
+                {/* Letter K */}
+                <path
+                  pathLength="1000"
+                  className="sig-stroke sig-k"
+                  d="M 45,120 C 40,75 52,32 68,28 C 76,30 65,68 60,126 M 58,72 C 72,58 92,42 110,38 C 98,62 82,86 66,94 C 80,100 98,122 114,134"
+                  stroke="url(#sigInkGrad)"
+                  strokeWidth="3.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+
+                {/* Letters 'unal' connected stream */}
+                <path
+                  pathLength="1000"
+                  className="sig-stroke sig-unal"
+                  d="M 114,134 C 122,130 128,98 135,98 C 142,98 142,122 150,122 C 158,122 158,98 166,98 C 174,98 174,122 182,122 C 188,108 194,98 202,98 C 210,98 208,122 216,122 C 224,106 232,96 242,96 C 252,96 250,122 242,122 C 232,122 234,104 244,104 C 252,104 252,122 260,122 C 265,116 270,72 278,44 C 284,26 290,28 286,52 C 278,86 274,122 290,122"
+                  stroke="url(#sigInkGrad)"
+                  strokeWidth="3.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+
+                {/* Letter 'J' */}
+                <path
+                  pathLength="1000"
+                  className="sig-stroke sig-j"
+                  d="M 305,42 C 325,38 348,36 370,40 M 342,42 C 344,74 340,126 332,148 C 322,172 304,166 298,150 C 292,132 314,120 340,118"
+                  stroke="url(#sigInkGrad)"
+                  strokeWidth="3.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+
+                {/* Letters 'ha' connected stream */}
+                <path
+                  pathLength="1000"
+                  className="sig-stroke sig-ha"
+                  d="M 340,118 C 348,112 356,66 364,38 C 368,26 374,28 370,52 C 364,88 360,122 370,122 C 378,106 388,96 398,96 C 406,96 404,122 414,122 C 420,106 428,96 438,96 C 448,96 446,122 438,122 C 428,122 430,104 440,104 C 448,104 450,122 462,122"
+                  stroke="url(#sigInkGrad)"
+                  strokeWidth="3.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+
+                {/* Dynamic flourish underline */}
+                <path
+                  pathLength="1000"
+                  className="sig-stroke sig-flourish"
+                  d="M 50,146 C 130,138 260,136 380,138 C 440,139 485,134 505,120 C 490,136 450,154 380,158 C 290,164 160,162 85,156"
+                  stroke="url(#sigInkGrad)"
+                  strokeWidth="2.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+
+                {/* Calligraphic cursive typography */}
+                <text
+                  x="270"
+                  y="126"
+                  className="sig-text-cursive"
+                  textAnchor="middle"
+                >
+                  Kunal Jha
+                </text>
+              </svg>
+
+              <div className="signature-hover-hint">
+                <RotateCcw size={12} className={isSigning ? "spinning" : ""} />
+                <span>{isSigning ? "Signing..." : "Click to Re-sign"}</span>
+              </div>
+            </div>
+
+            <div className="signature-footer-bar">
+              <div className="sig-author-info">
+                <strong>Kunal Jha</strong>
+                <span>Software Engineer · Pune, India</span>
+              </div>
+              <button
+                type="button"
+                className="sig-replay-btn"
+                onClick={handleReplay}
+                title="Replay handwritten signature animation"
+                aria-label="Replay signature animation"
+              >
+                <RotateCcw size={13} className={isSigning ? "spinning" : ""} />
+                <span>Replay Signature</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Authenticity Stamp / Seal */}
+          <div className="signature-seal-box">
+            <div className="seal-orbit-wrap">
+              <div className="seal-ring outer" />
+              <div className="seal-ring inner" />
+              <div className="seal-badge-core">
+                <span className="seal-monogram">KJ</span>
+                <span className="seal-sub">SWE</span>
+              </div>
+            </div>
+            <div className="seal-meta">
+              <b>ORIGINAL SPEC</b>
+              <span>ENGINEERED IN PUNE</span>
+              <small>SYSTEMS · REACT · GO · C</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function App() {
   const [dark, setDark] = useState(() => {
     const saved = localStorage.getItem("kj_theme");
-    return saved ? saved === "dark" : false;
+    return saved !== null ? saved === "dark" : true;
   });
   const [menuOpen, setMenuOpen] = useState(false);
   const [github, setGithub] = useState({ repos: 6, stars: 3 });
@@ -638,6 +808,9 @@ function App() {
             </div>
           </div>
         </section>
+
+        {/* --- ANIMATED SIGNATURE (JUST ABOVE CONTACT) --- */}
+        <AnimatedSignature />
 
         <section id="contact" className="contact-section">
           <div className="contact-no">05</div>
